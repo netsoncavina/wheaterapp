@@ -8,6 +8,7 @@ const BASE_WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather?";
 
 export default function App() {
   const [errorMessage, setErrorMessage] = useState(null);
+  const [currentWeather, setCurrentWeather] = useState(null);
   useEffect(() => {
     load();
   }, []);
@@ -26,14 +27,20 @@ export default function App() {
 
       const response = await fetch(weatherUrl);
       const result = await response.json();
+
+      if (response.ok) {
+        setCurrentWeather(result);
+      } else {
+        setErrorMessage(result.message);
+      }
     } catch (e) {
-      console.log(e);
+      setErrorMessage(e.message);
     }
   }
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>{currentWeather ? currentWeather.main.temp : errorMessage}</Text>
       <StatusBar style="auto" />
     </View>
   );
