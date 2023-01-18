@@ -41,8 +41,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>{currentWeather ? currentWeather.main.temp : errorMessage}</Text>
       <StatusBar style="auto" />
+      <View style={styles.main}>
+        <Text>{currentWeather ? currentWeather.main.temp : errorMessage}</Text>
+      </View>
     </View>
   );
 }
@@ -50,8 +52,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
+    justifyContent: "center",
+  },
+  main: {
+    flex: 1,
     justifyContent: "center",
   },
 });
