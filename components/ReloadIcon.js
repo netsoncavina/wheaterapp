@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function ReloadIcon() {
+export default function ReloadIcon({ load }) {
   return (
     <View>
       <Ionicons
@@ -10,6 +10,7 @@ export default function ReloadIcon() {
         name="reload"
         size={24}
         color="black"
+        onPress={load}
       />
     </View>
   );
