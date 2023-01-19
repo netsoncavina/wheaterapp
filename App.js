@@ -17,6 +17,7 @@ export default function App() {
   }, [unitSystem]);
 
   async function load() {
+    setCurrentWeather(null);
     try {
       let { status } = await Location.requestPermissionsAsync();
       if (status !== "granted") {
