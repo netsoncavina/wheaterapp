@@ -21,9 +21,9 @@ export default function UnitsPicker({ unitSystem, setUnitSystem }) {
 const styles = StyleSheet.create({
   picker: {
     position: "absolute",
-    top: 200,
-    left: 150,
-    height: 50,
+    top: 20,
+    left: 20,
+    height: 70,
     width: 100,
   },
 });
