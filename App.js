@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import * as Location from "expo-location";
 import WeatherInfo from "./components/WeatherInfo";
+import UnitsPicker from "./components/UnitsPicker";
 
 const WEATHER_API_KEY = "591ed98225dfbeadd70c189a6eb67766";
 const BASE_WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather?";
@@ -13,7 +14,7 @@ export default function App() {
   const [unitSystem, setUnitSystem] = useState("metric");
   useEffect(() => {
     load();
-  }, []);
+  }, [unitSystem]);
 
   async function load() {
     try {
@@ -43,6 +44,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
+      <UnitsPicker unitSystem={unitSystem} setUnitSystem={setUnitSystem} />
       <View style={styles.main}>
         {currentWeather ? (
           <WeatherInfo currentWeather={currentWeather} />
