@@ -17,8 +17,7 @@ export default function WeatherInfo({ currentWeather }) {
       <Text>{name}</Text>
       <Image style={styles.weatherIcon} source={{ uri: iconUrl }} />
       <Text style={styles.textPrimary}>{temp}°</Text>
-      <Text style={styles.weatherDescription}>{description}</Text>
-      <Text style={styles.textSecondary}>{main}</Text>
+      <Text style={styles.textSecondary}>{description}</Text>
     </View>
   );
 }
@@ -40,9 +39,10 @@ const styles = StyleSheet.create({
     color: PRIMARY_COLOR,
   },
   textSecondary: {
-    fontSize: 20,
+    fontSize: 30,
     color: SECONDARY_COLOR,
     fontWeight: "500",
     marginTop: 10,
+    textTransform: "capitalize",
   },
 });
