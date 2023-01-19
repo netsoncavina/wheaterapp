@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import * as Location from "expo-location";
+import WeatherInfo from "./components/WeatherInfo";
 
 const WEATHER_API_KEY = "591ed98225dfbeadd70c189a6eb67766";
 const BASE_WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather?";
@@ -43,7 +44,14 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.main}>
-        <Text>{currentWeather ? currentWeather.main.temp : errorMessage}</Text>
+        {currentWeather ? (
+          <WeatherInfo currentWeather={currentWeather} />
+        ) : (
+          <View>
+            <Text>{errorMessage}</Text>
+            <Text>Unable to get weather data</Text>
+          </View>
+        )}
       </View>
     </View>
   );
