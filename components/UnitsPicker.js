@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   picker: {
     position: "absolute",
     top: 200,
-    left: 10,
+    left: 150,
     height: 50,
     width: 100,
   },
