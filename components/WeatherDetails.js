@@ -1,8 +1,7 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import { PRIMARY_COLOR, SECONDARY_COLOR, BORDER_COLOR } from "../utils/index";
 import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
-
 export default function WeatherDetails({ currentWeather, unitSystem }) {
   const {
     main: { feels_like, humidity, pressure, temp_min, temp_max },
@@ -25,7 +24,10 @@ export default function WeatherDetails({ currentWeather, unitSystem }) {
           }}
         >
           <View style={styles.wheaterDetailsRow}>
-            <FontAwesome5 name="temperature-low" size={25} color="#ff304f" />
+            <Image
+              source={require("../assets/feels_like.png")}
+              style={styles.icon}
+            />
             <View style={styles.wheaterDetailsItems}>
               <Text>Sensação</Text>
               <Text style={styles.wheaterDetailsText}>
@@ -66,6 +68,7 @@ export default function WeatherDetails({ currentWeather, unitSystem }) {
         >
           <View style={styles.wheaterDetailsRow}>
             <FontAwesome5 name={"temperature-low"} size={30} color="#ff304f" />
+
             <View style={styles.wheaterDetailsItems}>
               <Text>Minima</Text>
               <Text style={styles.wheaterDetailsText}>
@@ -176,5 +179,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700",
     color: SECONDARY_COLOR,
+  },
+  icon: {
+    width: 30,
+    height: 30,
+    color: "#ff304f",
   },
 });
