@@ -2,6 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { PRIMARY_COLOR, SECONDARY_COLOR, BORDER_COLOR } from "../utils/index";
 import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
+
 export default function WeatherDetails({ currentWeather, unitSystem }) {
   const {
     main: { feels_like, humidity, pressure, temp_min, temp_max },
