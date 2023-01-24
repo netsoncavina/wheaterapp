@@ -38,10 +38,11 @@ export default function App() {
         setErrorMsg("Permission to access location was denied");
         return;
       }
-
-      const location = await Location.getCurrentPositionAsync({});
-      setLatitude(location.coords.latitude);
-      setLongitude(location.coords.longitude);
+      if (!latitude || !longitude) {
+        const location = await Location.getCurrentPositionAsync({});
+        setLatitude(location.coords.latitude);
+        setLongitude(location.coords.longitude);
+      }
 
       const weatherUrl = `${BASE_WEATHER_URL}lat=${latitude}&lon=${longitude}&units=${unitSystem}&lang=pt_br&appid=${WEATHER_API_KEY}`;
 
@@ -63,7 +64,11 @@ export default function App() {
       <StatusBar style="auto" />
       <UnitsPicker unitSystem={unitSystem} setUnitSystem={setUnitSystem} />
       <ReloadIcon load={load} />
-      <InputText />
+      <InputText
+        setLatitude={setLatitude}
+        setLongitude={setLongitude}
+        onSubmit={load}
+      />
       <View style={styles.main}>
         {currentWeather ? (
           <WeatherInfo currentWeather={currentWeather} />
