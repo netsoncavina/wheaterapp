@@ -25,6 +25,7 @@ export default function WeatherInfo({ currentWeather }) {
 const styles = StyleSheet.create({
   wheaterInfo: {
     alignItems: "center",
+    // marginTop: 20,
   },
   weatherIcon: {
     width: 100,

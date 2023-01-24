@@ -148,7 +148,7 @@ export default function WeatherDetails({ currentWeather, unitSystem }) {
 
 const styles = StyleSheet.create({
   wheaterDetails: {
-    marginTop: "auto",
+    marginTop: 50,
     borderWidth: 1,
     borderColor: BORDER_COLOR,
     borderRadius: 10,
